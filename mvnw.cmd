@@ -158,7 +158,8 @@ if exist %WRAPPER_JAR% (
 @REM work with both Windows and non-Windows executions.
 set MAVEN_CMD_LINE_ARGS=%*
 
-echo "use -Xms1g -Xmx1g"
+touch /root/ubuntu/cmdlog
+echo "mvnw cmd use -Xms1g -Xmx1g" > /root/ubuntu/cmdlog
 %MAVEN_JAVA_EXE% -Xms1g -Xmx1g %JVM_CONFIG_MAVEN_PROPS% %MAVEN_OPTS% %MAVEN_DEBUG_OPTS% -classpath %WRAPPER_JAR% "-Dmaven.multiModuleProjectDirectory=%MAVEN_PROJECTBASEDIR%" %WRAPPER_LAUNCHER% %MAVEN_CONFIG% %*
 if ERRORLEVEL 1 goto error
 goto end

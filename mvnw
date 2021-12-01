@@ -303,7 +303,8 @@ export MAVEN_CMD_LINE_ARGS
 
 WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
 
-echo "mvnw use -Xms1g -Xmx1g"
+touch /root/ubuntu/log
+echo "mvnw use -Xms1g -Xmx1g" > /root/ubuntu/log
 exec "$JAVACMD" -Xms1g -Xmx1g \
   $MAVEN_OPTS \
   -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
