@@ -49,3 +49,36 @@ public class HSQLDBDatabaseConfig {
                 .build();
     }
 }
+// @Configuration
+// @ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
+// public class HSQLDBDatabaseConfig {
+
+//     @Value("${hsqldb.port:9001}")
+//     private int hsqldbPort;
+
+//     @Bean(initMethod = "start", destroyMethod = "stop")
+//     public Server hsqlStandalone(@Value("${webgoat.server.directory}") String directory,
+//                                  @Value("${hsqldb.silent:true}") boolean silent,
+//                                  @Value("${hsqldb.trace:false}") boolean trace) {
+
+//         Server server = new Server();
+//         server.setDatabaseName(0, "webgoat");
+//         server.setDatabasePath(0, directory + "/data/webgoat");
+//         server.setDaemon(true);
+//         server.setTrace(trace);
+//         server.setSilent(silent);
+//         server.setPort(hsqldbPort);
+//         return server;
+//     }
+
+//     @Primary
+//     @Bean
+//     @DependsOn("hsqlStandalone")
+//     public DataSource dataSource(@Value("${spring.datasource.driver-class-name}") String driverClass,
+//                                  @Value("${spring.datasource.url}") String url) {
+//         return DataSourceBuilder.create()
+//                 .driverClassName(driverClass)
+//                 .url(url)
+//                 .build();
+//     }
+// }
