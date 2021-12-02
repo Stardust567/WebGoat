@@ -74,16 +74,14 @@ public class StartLesson {
 
     @RequestMapping(value = {"*.lesson"}, produces = "text/html")
     public ModelAndView lessonPage(HttpServletRequest request) {
+        long startTime = System.nanoTime();
         // I will set here the thymeleaf fragment location based on the resource requested.
         ModelAndView model = new ModelAndView();
         SecurityContext context = SecurityContextHolder.getContext(); //TODO this should work with the security roles of Spring
         //GrantedAuthority authority = context.getAuthentication().getAuthorities().iterator().next();
         String path = request.getRequestURL().toString(); // we now got /a/b/c/AccessControlMatrix.lesson
-        System.out.println(path);
         String lessonName = path.substring(path.lastIndexOf('/') + 1, path.indexOf(".lesson"));
-        System.out.println(lessonName);
         List<? extends Lesson> lessons = course.getLessons();
-        System.out.println(course.getLessons());
         //[challenge8.title, challenge5.title, challenge1.title, challenge7.title, bypass-restrictions.title, client.side.filtering.title, 6.crypto.title, xss.title, html-tampering.title, 1.http-basics.title, 2.http-proxies.title, 4.cia.title, 3.chrome-dev-tools.title, idor.title, csrf.title, insecure-login.title, insecure-deserialization.title, jwt.title, path-traversal-title, 1.sql.injection.title, 2.sql.advanced.title, 3.sql.mitigation.title, vulnerable-components.title, xxe.title, auth-bypass.title, webgoat.title, webwolf.title, missing-function-access-control.title, password-reset.title, ssrf.title, secure-passwords.title, spoofcookie.title, hijacksession.title, lesson-template.title, logging.title]
         Optional<? extends Lesson> lesson = lessons.stream()
                 .filter(l -> l.getId().equals(lessonName))
@@ -91,7 +89,8 @@ public class StartLesson {
         ws.setCurrentLesson(lesson.get());
         model.setViewName("lesson_content");
         model.addObject("lesson", lesson.get());
-        System.out.println(lesson.get());
+        long timer = System.nanoTime() - startTime;
+        System.out.println(timer);
         return model;
     }
 
