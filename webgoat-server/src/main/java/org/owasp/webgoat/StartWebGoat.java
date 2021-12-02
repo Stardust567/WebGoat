@@ -53,7 +53,7 @@ public class StartWebGoat extends SpringBootServletInitializer {
 
         String webgoatPort = System.getenv("WEBGOAT_PORT");
         String databasePort = System.getenv("WEBGOAT_HSQLPORT");
-        String webGoatHost = null == System.getenv("WEBGOAT_HOST") ? "172.31.90.255" : System.getenv("WEBGOAT_HOST");
+        String webGoatHost = null == System.getenv("WEBGOAT_HOST") ? "127.0.0.1" : System.getenv("WEBGOAT_HOST");
         int goatPort = webgoatPort == null ? 8080 : Integer.parseInt(webgoatPort);
         int dbPort = databasePort == null ? 9001 : Integer.parseInt(databasePort);
 
