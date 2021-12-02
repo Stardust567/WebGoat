@@ -106,7 +106,7 @@ public class DatabaseUtilities
 	{
 		Class.forName(context.getDatabaseDriver());
 
-		if (context.getDatabaseConnectionString().contains("hsqldb")) return getHsqldbConnection(user, context);
+		//if (context.getDatabaseConnectionString().contains("hsqldb")) return getHsqldbConnection(user, context);
 
 		String userPrefix = context.getDatabaseUser();
 		String password = context.getDatabasePassword();
