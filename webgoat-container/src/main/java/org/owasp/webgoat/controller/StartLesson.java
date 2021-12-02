@@ -79,14 +79,18 @@ public class StartLesson {
         SecurityContext context = SecurityContextHolder.getContext(); //TODO this should work with the security roles of Spring
         //GrantedAuthority authority = context.getAuthentication().getAuthorities().iterator().next();
         String path = request.getRequestURL().toString(); // we now got /a/b/c/AccessControlMatrix.lesson
+        System.out.println(path);
         String lessonName = path.substring(path.lastIndexOf('/') + 1, path.indexOf(".lesson"));
+        System.out.println(lessonName);
         List<? extends Lesson> lessons = course.getLessons();
+        System.out.println(course.getLessons());
         Optional<? extends Lesson> lesson = lessons.stream()
                 .filter(l -> l.getId().equals(lessonName))
                 .findFirst();
         ws.setCurrentLesson(lesson.get());
         model.setViewName("lesson_content");
         model.addObject("lesson", lesson.get());
+        System.out.println(lesson.get());
         return model;
     }
 
