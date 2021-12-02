@@ -55,36 +55,36 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry security = http
-                .authorizeRequests()
-                .antMatchers("/css/**", "/images/**", "/js/**", "fonts/**", "/plugins/**", "/registration", "/register.mvc").permitAll()
-                .antMatchers("/servlet/AdminServlet/**").hasAnyRole("WEBGOAT_ADMIN", "SERVER_ADMIN") //
-                .antMatchers("/JavaSource/**").hasRole("SERVER_ADMIN") //
-                .anyRequest().authenticated();
-        security.and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/welcome.mvc", true)
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .permitAll();
-        security.and()
-                .logout().deleteCookies("JSESSIONID").invalidateHttpSession(true);
-        security.and().csrf().disable();
+        // ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry security = http
+        //         .authorizeRequests()
+        //         .antMatchers("/css/**", "/images/**", "/js/**", "fonts/**", "/plugins/**", "/registration", "/register.mvc").permitAll()
+        //         .antMatchers("/servlet/AdminServlet/**").hasAnyRole("WEBGOAT_ADMIN", "SERVER_ADMIN") //
+        //         .antMatchers("/JavaSource/**").hasRole("SERVER_ADMIN") //
+        //         .anyRequest().authenticated();
+        // security.and()
+        //         .formLogin()
+        //         .loginPage("/login")
+        //         .defaultSuccessUrl("/welcome.mvc", true)
+        //         .usernameParameter("username")
+        //         .passwordParameter("password")
+        //         .permitAll();
+        // security.and()
+        //         .logout().deleteCookies("JSESSIONID").invalidateHttpSession(true);
+        // security.and().csrf().disable();
 
-        http.headers().cacheControl().disable();
-        http.exceptionHandling().authenticationEntryPoint(new AjaxAuthenticationEntryPoint("/login"));
+        // http.headers().cacheControl().disable();
+        // http.exceptionHandling().authenticationEntryPoint(new AjaxAuthenticationEntryPoint("/login"));
     }
 
     //// TODO: 11/18/2016 make this a little bit more configurabe last part at least
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/plugin_lessons/**", "/XXE/**");
+        // web.ignoring().antMatchers("/plugin_lessons/**", "/XXE/**");
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService); //.passwordEncoder(bCryptPasswordEncoder());
+        // auth.userDetailsService(userDetailsService); //.passwordEncoder(bCryptPasswordEncoder());
     }
 
     @Bean
