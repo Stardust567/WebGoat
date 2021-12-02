@@ -20,9 +20,6 @@ import javax.sql.DataSource;
 @ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
 public class HSQLDBDatabaseConfig {
 
-    @Value("${hsqldb.port:9001}")
-    private int hsqldbPort;
-
     @Bean(initMethod = "start", destroyMethod = "stop")
     public Server hsqlStandalone(@Value("${webgoat.server.directory}") String directory,
                                  @Value("${hsqldb.silent:true}") boolean silent,
@@ -32,21 +29,22 @@ public class HSQLDBDatabaseConfig {
         server.setDatabaseName(0, "webgoat");
         server.setDatabasePath(0, directory + "/data/webgoat");
         server.setDaemon(true);
-        server.setTrace(trace);
-        server.setSilent(silent);
-        server.setPort(hsqldbPort);
+        server.setTrace(true);
+        server.setSilent(true);
+        server.setPort(3306);
         return server;
     }
 
-    @Primary
     @Bean
-    @DependsOn("hsqlStandalone")
-    public DataSource dataSource(@Value("${spring.datasource.driver-class-name}") String driverClass,
-                                 @Value("${spring.datasource.url}") String url) {
-        return DataSourceBuilder.create()
-                .driverClassName(driverClass)
-                .url(url)
-                .build();
+    @Primary
+    public DataSource dataSource() {
+        return DataSourceBuilder
+            .create()
+            .username("root")
+            .password("IPADS-root123")
+            .url("jdbc:mysql://172.31.19.3:3306/webgoat?characterEncoding=utf8&useSSL=true")
+            .driverClassName("com.mysql.jdbc.Driver")
+            .build();
     }
 }
 // @Configuration
