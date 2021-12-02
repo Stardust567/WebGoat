@@ -42,8 +42,8 @@ public class HSQLDBDatabaseConfig {
             .create()
             .username("root")
             .password("IPADS-root123")
-            .url("jdbc:mysql://172.31.19.3:3306/webgoat?characterEncoding=utf8&useSSL=true")
-            .driverClassName("com.mysql.jdbc.Driver")
+            .url("jdbc:mysql://172.31.19.3:3306/webgoat?useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai")
+            .driverClassName("com.mysql.cj.jdbc.Driver")
             .build();
     }
 }
