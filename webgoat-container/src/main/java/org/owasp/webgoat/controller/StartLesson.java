@@ -74,6 +74,7 @@ public class StartLesson {
     @RequestMapping(value = {"*.lesson"}, produces = "text/html")
     public ModelAndView lessonPage(HttpServletRequest request) {
         // I will set here the thymeleaf fragment location based on the resource requested.
+        System.out.println("start lesson fuction at "+System.nanoTime());
         ModelAndView model = new ModelAndView();
         SecurityContext context = SecurityContextHolder.getContext(); //TODO this should work with the security roles of Spring
         //GrantedAuthority authority = context.getAuthentication().getAuthorities().iterator().next();
@@ -86,6 +87,7 @@ public class StartLesson {
         ws.setCurrentLesson(lesson.get());
         model.setViewName("lesson_content");
         model.addObject("lesson", lesson.get());
+        System.out.println("end lesson fuction at "+System.nanoTime());
         return model;
     }
 
