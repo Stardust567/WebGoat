@@ -17,23 +17,23 @@ import javax.sql.DataSource;
  * JVM. This can only be done if you start a standalone HSQLDB. We need both WebWolf and WebGoat to use the same database
  */
 @Configuration
-@ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
+// @ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
 public class HSQLDBDatabaseConfig {
 
-    @Bean(initMethod = "start", destroyMethod = "stop")
-    public Server hsqlStandalone(@Value("${webgoat.server.directory}") String directory,
-                                 @Value("${hsqldb.silent:true}") boolean silent,
-                                 @Value("${hsqldb.trace:false}") boolean trace) {
+    // @Bean(initMethod = "start", destroyMethod = "stop")
+    // public Server hsqlStandalone(@Value("${webgoat.server.directory}") String directory,
+    //                              @Value("${hsqldb.silent:true}") boolean silent,
+    //                              @Value("${hsqldb.trace:false}") boolean trace) {
 
-        Server server = new Server();
-        server.setDatabaseName(0, "webgoat");
-        server.setDatabasePath(0, directory + "/data/webgoat");
-        server.setDaemon(true);
-        server.setTrace(true);
-        server.setSilent(true);
-        server.setPort(3306);
-        return server;
-    }
+    //     Server server = new Server();
+    //     server.setDatabaseName(0, "webgoat");
+    //     server.setDatabasePath(0, directory + "/data/webgoat");
+    //     server.setDaemon(true);
+    //     server.setTrace(true);
+    //     server.setSilent(true);
+    //     server.setPort(3306);
+    //     return server;
+    // }
 
     @Bean
     @Primary
