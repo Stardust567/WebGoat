@@ -35,7 +35,7 @@ public class HSQLDBDatabaseConfig {
     //     return server;
     // }
 
-    @Bean(initMethod = "start", destroyMethod = "stop")
+    @Bean
     @Primary
     public DataSource dataSource() {
         return DataSourceBuilder
