@@ -17,7 +17,7 @@ import javax.sql.DataSource;
  * JVM. This can only be done if you start a standalone HSQLDB. We need both WebWolf and WebGoat to use the same database
  */
 @Configuration
-// @ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
+@ConditionalOnProperty(prefix = "webgoat.start", name = "hsqldb", havingValue = "true")
 public class HSQLDBDatabaseConfig {
 
     // @Bean(initMethod = "start", destroyMethod = "stop")
@@ -35,7 +35,7 @@ public class HSQLDBDatabaseConfig {
     //     return server;
     // }
 
-    @Bean
+    @Bean(initMethod = "start", destroyMethod = "stop")
     @Primary
     public DataSource dataSource() {
         return DataSourceBuilder
