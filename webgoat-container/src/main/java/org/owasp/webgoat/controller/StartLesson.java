@@ -84,8 +84,7 @@ public class StartLesson {
         System.out.println(lessonName);
         List<? extends Lesson> lessons = course.getLessons();
         System.out.println(course.getLessons());
-        
-        [challenge8.title, challenge5.title, challenge1.title, challenge7.title, bypass-restrictions.title, client.side.filtering.title, 6.crypto.title, xss.title, html-tampering.title, 1.http-basics.title, 2.http-proxies.title, 4.cia.title, 3.chrome-dev-tools.title, idor.title, csrf.title, insecure-login.title, insecure-deserialization.title, jwt.title, path-traversal-title, 1.sql.injection.title, 2.sql.advanced.title, 3.sql.mitigation.title, vulnerable-components.title, xxe.title, auth-bypass.title, webgoat.title, webwolf.title, missing-function-access-control.title, password-reset.title, ssrf.title, secure-passwords.title, spoofcookie.title, hijacksession.title, lesson-template.title, logging.title]
+        //[challenge8.title, challenge5.title, challenge1.title, challenge7.title, bypass-restrictions.title, client.side.filtering.title, 6.crypto.title, xss.title, html-tampering.title, 1.http-basics.title, 2.http-proxies.title, 4.cia.title, 3.chrome-dev-tools.title, idor.title, csrf.title, insecure-login.title, insecure-deserialization.title, jwt.title, path-traversal-title, 1.sql.injection.title, 2.sql.advanced.title, 3.sql.mitigation.title, vulnerable-components.title, xxe.title, auth-bypass.title, webgoat.title, webwolf.title, missing-function-access-control.title, password-reset.title, ssrf.title, secure-passwords.title, spoofcookie.title, hijacksession.title, lesson-template.title, logging.title]
         Optional<? extends Lesson> lesson = lessons.stream()
                 .filter(l -> l.getId().equals(lessonName))
                 .findFirst();
