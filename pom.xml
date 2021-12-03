@@ -306,7 +306,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.1.21.INTERNAL</version>
+            <version>5.1.21.BUILD-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.1.21.BUILD-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
