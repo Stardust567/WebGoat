@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <!-- <version>1.5.12.RELEASE</version> -->
+        <version>1.5.12.RELEASE</version>
     </parent>
 
     <licenses>
@@ -302,6 +302,11 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-exec</artifactId>
             <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.1.21.INTERNAL</version>
         </dependency>
     </dependencies>
 
