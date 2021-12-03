@@ -1,6 +1,5 @@
 package org.owasp.webgoat;
 
-import org.hsqldb.server.Server;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
